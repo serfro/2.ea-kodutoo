@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-Teet Triisa!!!
-Sergei Frolov!!!
 Teet Triisa
 Sergei Frolov
->>>>>>> f5c9d742d6f800267707db5f0a4136515423fdd5
 Sergei Frolov!!!!!!!!!!!!!!!!
 
 
