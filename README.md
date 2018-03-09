@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 Teet Triisa
-=======
-
->>>>>>> 94065bb83e39d05c211df48614a9b11b7e261bd6
+Sergei Frolov
 
 
 # 2. kodutöö – kirjutamise mängu täiendamine
