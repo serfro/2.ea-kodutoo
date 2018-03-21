@@ -57,7 +57,15 @@ TYPER.prototype = {
     this.word.Draw()
 
     window.addEventListener('keypress', this.keyPressed.bind(this))
+   // this.startTime = new Date().getTime()
+   // window.setInterval(this.loop.bind(this), 1000)
   },
+
+  /*loop: function (){
+    this.word.Draw()
+    const currentTime = new Date().getTime()
+    this.counter = currentTime - this.startTime
+  }*/
 
   generateWord: function () {
     const generatedWordLength = this.wordMinLength + parseInt(this.guessedWords / 5)
