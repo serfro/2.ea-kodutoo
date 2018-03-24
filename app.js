@@ -142,43 +142,20 @@ function structureArrayByWordLength (words) {
   return tempArray
 }
 
-function checkNameInput () {
-  let x = document.getElementById('nameText').value
-  if (document.getElementById('nameText').value != '') {
+
+function checkNameInput() {
+  let x = document.getElementById("nameText").value;
+  if (document.getElementById("nameText").value != ""){
     startGame()
   } else {
     alert('Name field is empty!')
   }
 }
 
-function highScores () {
-  switchView('startGame')
-  switchView('highScores')
-  switchView('name')
-  switchView('menuBtn')
-  switchView('scores')
-}
-
-function highToMenu () {
-  switchView('startGame')
-  switchView('highScores')
-  switchView('name')
-  switchView('menuBtn')
-  switchView('scores')
-}
-
-function checkNameInput () {
-  let x = document.getElementById('nameText').value
-  if (document.getElementById('nameText').value != '') {
-    startGame()
-  } else {
-    alert('Name field is empty!')
-  }
-}
-let totalSeconds = 0
-function stopWatch () {
-  ++totalSeconds
-  document.getElementById('timer').innerHTML = totalSeconds
+let totalSeconds = 0;
+function stopWatch() {
+  ++totalSeconds;
+  document.getElementById("timer").innerHTML = totalSeconds;
 }
 
 function startGame () {
@@ -193,31 +170,23 @@ function startGame () {
   window.typer = typer
 }
 
-function gameOver () {
-  // console.log("game over")
-  document.getElementById('gameOverDiv').innerHTML = '<p> GAME OVER <p>'
-  switchView('gameMenu')
+ function gameOver () {
+   //console.log("game over")
+    document.getElementById("gameOverDiv").innerHTML="<p> GAME OVER <p>"
+    switchView("gameMenu")
+ }
+
+window.onload = function(){
+  switchView("topBar")
 }
 
-function showHighScores () {
-  for (let i = 0; i < 10; i++) {
-    document.getElementById(i + 1 + '.').innerHTML = sortArray()[i]
-  }
-}
 
-window.onload = function () {
-  switchView('topBar')
-  switchView('scores')
-  switchView('menuBtn')
-}
 
-function switchView (menuType) {
-  let x = document.getElementById(menuType)
-  if (x.style.display === 'none') {
-    x.style.display = 'block'
+function switchView(menuType) {
+  var x = document.getElementById(menuType);
+  if (x.style.display === "none") {
+    x.style.display = "block";
   } else {
-    x.style.display = 'none'
+    x.style.display = "none";
   }
-  const typer = new TYPER()
-  window.typer = typer
 }
