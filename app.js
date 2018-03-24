@@ -162,14 +162,19 @@ function startGame () {
   window.typer = typer
 }
 
-//  function gameOver () {
-//    //console.log("game over")
-//     document.getElementById("gameOverDiv").innerHTML="<p> GAME OVER <p>"
-//     switchView("gameMenu")
-//  }
+ function gameOver () {
+   let gg = confirm("Game Over! \n You loose. \n You don't any points if you loose. Want to try again?")
+   if (gg == true) {
+     alert("You can't! Ha-ha!\n Need to start from the beginning and write you name again.\n Suffer")
+     window.location.href = ""
+   } else {
+     window.location.href = ""
+   }
+ }
 
 window.onload = function(){
   switchView("topBar")
+  switchView("gameOver")
 }
 
 

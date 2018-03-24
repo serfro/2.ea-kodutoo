@@ -12,7 +12,7 @@ canvas {
   top: 25px;
   position: absolute;
 }
-gameOverDiv {
+gameOver {
   color: white;
   background-color: red;
 }
@@ -56,11 +56,6 @@ button:hover {
   color: white;
 }
 
-.scoreCounter{
-  height:125px;
-  color:black;
-  text-align:center;
-}
 
 .nameText{
   color: white;
