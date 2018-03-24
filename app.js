@@ -193,11 +193,11 @@ function startGame () {
   window.typer = typer
 }
 
- function gameOver () {
-   //console.log("game over")
-    document.getElementById("gameOverDiv").innerHTML="<p> GAME OVER <p>"
-    switchView("gameMenu")
- }
+function gameOver () {
+  // console.log("game over")
+  document.getElementById('gameOverDiv').innerHTML = '<p> GAME OVER <p>'
+  switchView('gameMenu')
+}
 
 function showHighScores () {
   for (let i = 0; i < 10; i++) {
