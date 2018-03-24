@@ -95,6 +95,8 @@ TYPER.prototype = {
         this.timestart = +new Date()
       }
       this.word.Draw()
+    } else {
+      gameOver()
     }
   }
 }
@@ -165,7 +167,41 @@ function highToMenu() {
   switchView("scores")
 }
 
+function checkNameInput() {
+  let x = document.getElementById("nameText").value;
+  if (document.getElementById("nameText").value != ""){
+    startGame()
+  } else {
+    alert("Name field is empty!")
+  }
+}
+let totalSeconds = 0;
+function stopWatch() {
+  ++totalSeconds;
+  document.getElementById("timer").innerHTML = totalSeconds;
+}
 
+function startGame () {
+    document.getElementById("gameStartDiv").innerHTML="<canvas></canvas>"
+    switchView("gameMenu")
+    switchView("topBar")
+    totalSeconds = 0;
+    let timer = setInterval(stopWatch, 1000)
+    totalSeconds = 0;
+    document.getElementById("timer").style.display = "block"
+    const typer = new TYPER()
+    window.typer = typer
+}
+
+// function gameOver () {
+//     switchView("gameMenu")
+// }
+
+function showHighScores() {
+  for (let i=0; i<10; i++) {
+    document.getElementById(i+1+".").innerHTML = sortArray()[i];
+  }
+}
 
 window.onload = function () {
   switchView("topBar")
