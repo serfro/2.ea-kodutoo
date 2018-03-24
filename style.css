@@ -12,10 +12,6 @@ canvas {
   top: 25px;
   position: absolute;
 }
-gameOver {
-  color: white;
-  background-color: red;
-}
 
 a{
   color: black;
@@ -30,14 +26,8 @@ button {
   border-color:blue;
   
 }
-
 button:hover {
   background-color: gray;
-}
-
-.gameOver {
-  color: black;
-  background-color: red;
 }
 .gameMenu {
   color: black;
