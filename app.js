@@ -42,8 +42,8 @@ TYPER.prototype = {
     xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState === 4 && (xmlhttp.status === 200 || xmlhttp.status === 0)) {
         const response = xmlhttp.responseText
-        const wordsFromFile = response.split('\n')
-
+        const wordsFromFile = response.replace(/\r\n/g, '\n').split('\n')
+        console.log(234)
         typer.words = structureArrayByWordLength(wordsFromFile)
 
         typer.start()
@@ -74,7 +74,7 @@ TYPER.prototype = {
   generateWord: function () {
     const generatedWordLength = this.wordMinLength + parseInt(this.guessedWords / 5)
     const randomIndex = (Math.random() * (this.words[generatedWordLength].length - 1)).toFixed()
-    const wordFromArray = this.words[generatedWordLength + 1][randomIndex]
+    const wordFromArray = this.words[generatedWordLength][randomIndex]
     console.log(generatedWordLength)
     console.log(this.words)
 
@@ -87,7 +87,7 @@ TYPER.prototype = {
     if (letter === this.word.left.charAt(0)) {
       this.word.removeFirstLetter()
 
-      if (this.word.left.length - 1 === 0) {
+      if (this.word.left.length === 0) {
         this.guessedWords += 1
         this.scoretime += this.guessedWords % 5 === 0 ? 200 : 0
         this.scoreupdate()
@@ -142,17 +142,14 @@ function structureArrayByWordLength (words) {
   return tempArray
 }
 
-
-function checkNameInput() {
-  let x = document.getElementById("nameText").value;
-  if (document.getElementById("nameText").value != ""){
+function checkNameInput () {
+  let x = document.getElementById('nameText').value
+  if (document.getElementById('nameText').value != '') {
     startGame()
   } else {
     alert('Name field is empty!')
   }
 }
-
-
 
 function startGame () {
   document.getElementById('gameStartDiv').innerHTML = '<canvas></canvas>'
@@ -172,18 +169,15 @@ function startGame () {
    }
  }
 
-window.onload = function(){
-  switchView("topBar")
-  switchView("gameOver")
+window.onload = function () {
+  switchView('topBar')
 }
 
-
-
-function switchView(menuType) {
-  var x = document.getElementById(menuType);
-  if (x.style.display === "none") {
-    x.style.display = "block";
+function switchView (menuType) {
+  var x = document.getElementById(menuType)
+  if (x.style.display === 'none') {
+    x.style.display = 'block'
   } else {
-    x.style.display = "none";
+    x.style.display = 'none'
   }
 }
