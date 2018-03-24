@@ -71,11 +71,6 @@ button:hover {
   font-size: 35px;
 }
 
-.timer{
-  color: red;
-  font-size: 35px;
-  display: none;
-}
 
 .scores{
   text-align: left;

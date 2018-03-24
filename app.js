@@ -152,20 +152,12 @@ function checkNameInput() {
   }
 }
 
-let totalSeconds = 0;
-function stopWatch() {
-  ++totalSeconds;
-  document.getElementById("timer").innerHTML = totalSeconds;
-}
+
 
 function startGame () {
   document.getElementById('gameStartDiv').innerHTML = '<canvas></canvas>'
   switchView('gameMenu')
   switchView('topBar')
-  totalSeconds = 0
-  let timer = setInterval(stopWatch, 1000)
-  totalSeconds = 0
-  document.getElementById('timer').style.display = 'block'
   const typer = new TYPER()
   window.typer = typer
 }
