@@ -170,11 +170,11 @@ function startGame () {
   window.typer = typer
 }
 
- function gameOver () {
-   //console.log("game over")
-    document.getElementById("gameOverDiv").innerHTML="<p> GAME OVER <p>"
-    switchView("gameMenu")
- }
+//  function gameOver () {
+//    //console.log("game over")
+//     document.getElementById("gameOverDiv").innerHTML="<p> GAME OVER <p>"
+//     switchView("gameMenu")
+//  }
 
 window.onload = function(){
   switchView("topBar")
