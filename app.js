@@ -49,7 +49,7 @@ TYPER.prototype = {
         typer.start()
       }
     }
-    
+
     xmlhttp.open('GET', './lemmad2013.txt', true)
     xmlhttp.send()
   },
@@ -142,57 +142,55 @@ function structureArrayByWordLength (words) {
   return tempArray
 }
 
-function checkNameInput() {
-  let x = document.getElementById("nameText").value;
-  if (document.getElementById("nameText").value != ""){
+function checkNameInput () {
+  let x = document.getElementById('nameText').value
+  if (document.getElementById('nameText').value != '') {
     startGame()
   } else {
-    alert("Name field is empty!")
+    alert('Name field is empty!')
   }
 }
 
-function highScores() {
-  switchView("startGame")
-  switchView("highScores")
-  switchView("name")
-  switchView("menuBtn")
-  switchView("scores")
-  
+function highScores () {
+  switchView('startGame')
+  switchView('highScores')
+  switchView('name')
+  switchView('menuBtn')
+  switchView('scores')
 }
 
-function highToMenu() {
-  switchView("startGame")
-  switchView("highScores")
-  switchView("name")
-  switchView("menuBtn")
-  switchView("scores")
-  
+function highToMenu () {
+  switchView('startGame')
+  switchView('highScores')
+  switchView('name')
+  switchView('menuBtn')
+  switchView('scores')
 }
 
-function checkNameInput() {
-  let x = document.getElementById("nameText").value;
-  if (document.getElementById("nameText").value != ""){
+function checkNameInput () {
+  let x = document.getElementById('nameText').value
+  if (document.getElementById('nameText').value != '') {
     startGame()
   } else {
-    alert("Name field is empty!")
+    alert('Name field is empty!')
   }
 }
-let totalSeconds = 0;
-function stopWatch() {
-  ++totalSeconds;
-  document.getElementById("timer").innerHTML = totalSeconds;
+let totalSeconds = 0
+function stopWatch () {
+  ++totalSeconds
+  document.getElementById('timer').innerHTML = totalSeconds
 }
 
 function startGame () {
-    document.getElementById("gameStartDiv").innerHTML="<canvas></canvas>"
-    switchView("gameMenu")
-    switchView("topBar")
-    totalSeconds = 0;
-    let timer = setInterval(stopWatch, 1000)
-    totalSeconds = 0;
-    document.getElementById("timer").style.display = "block"
-    const typer = new TYPER()
-    window.typer = typer
+  document.getElementById('gameStartDiv').innerHTML = '<canvas></canvas>'
+  switchView('gameMenu')
+  switchView('topBar')
+  totalSeconds = 0
+  let timer = setInterval(stopWatch, 1000)
+  totalSeconds = 0
+  document.getElementById('timer').style.display = 'block'
+  const typer = new TYPER()
+  window.typer = typer
 }
 
  function gameOver () {
@@ -201,20 +199,24 @@ function startGame () {
     switchView("gameMenu")
  }
 
-
-window.onload = function () {
-  switchView("topBar")
-  switchView("scores")
-  switchView("menuBtn")
+function showHighScores () {
+  for (let i = 0; i < 10; i++) {
+    document.getElementById(i + 1 + '.').innerHTML = sortArray()[i]
+  }
 }
 
+window.onload = function () {
+  switchView('topBar')
+  switchView('scores')
+  switchView('menuBtn')
+}
 
-function switchView(menuType) {
+function switchView (menuType) {
   let x = document.getElementById(menuType)
-  if (x.style.display === "none") {
-    x.style.display = "block"
+  if (x.style.display === 'none') {
+    x.style.display = 'block'
   } else {
-    x.style.display = "none"
+    x.style.display = 'none'
   }
   const typer = new TYPER()
   window.typer = typer
