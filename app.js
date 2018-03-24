@@ -14,6 +14,8 @@ const TYPER = function () {
   this.word = null
   this.wordMinLength = 5
   this.guessedWords = 0
+  this.score = 0
+  this.scoretime = 2500
 
   this.init()
 }
@@ -55,16 +57,28 @@ TYPER.prototype = {
   start: function () {
     this.generateWord()
     this.word.Draw()
-
+    this.timestart = +new Date()
     window.addEventListener('keypress', this.keyPressed.bind(this))
+  },
+
+  scoreupdate: function () {
+    this.timeend = +new Date()
+    let scoretmp = this.timeend - this.timestart
+    console.log(scoretmp)
+    console.log(this.scoretime)
+    if (scoretmp < this.scoretime) {
+      this.score += this.scoretime - scoretmp
+    }
   },
 
   generateWord: function () {
     const generatedWordLength = this.wordMinLength + parseInt(this.guessedWords / 5)
     const randomIndex = (Math.random() * (this.words[generatedWordLength].length - 1)).toFixed()
-    const wordFromArray = this.words[generatedWordLength][randomIndex]
+    const wordFromArray = this.words[generatedWordLength + 1][randomIndex]
+    console.log(generatedWordLength)
+    console.log(this.words)
 
-    this.word = new Word(wordFromArray, this.canvas, this.ctx)
+    this.word = new Word(wordFromArray, this.canvas, this.ctx, this.score)
   },
 
   keyPressed: function (event) {
@@ -73,12 +87,13 @@ TYPER.prototype = {
     if (letter === this.word.left.charAt(0)) {
       this.word.removeFirstLetter()
 
-      if (this.word.left.length === 0) {
+      if (this.word.left.length - 1 === 0) {
         this.guessedWords += 1
-
+        this.scoretime += this.guessedWords % 5 === 0 ? 200 : 0
+        this.scoreupdate()
         this.generateWord()
+        this.timestart = +new Date()
       }
-
       this.word.Draw()
     } else {
       gameOver()
@@ -87,8 +102,9 @@ TYPER.prototype = {
 }
 
 /* WORD */
-const Word = function (word, canvas, ctx) {
+const Word = function (word, canvas, ctx, score) {
   this.word = word
+  this.score = score
   this.left = this.word
   this.canvas = canvas
   this.ctx = ctx
@@ -101,6 +117,10 @@ Word.prototype = {
     this.ctx.textAlign = 'center'
     this.ctx.font = '140px Courier'
     this.ctx.fillText(this.left, this.canvas.width / 2, this.canvas.height / 2)
+
+    this.ctx.textAlign = 'center'
+    this.ctx.font = '140px Courier'
+    this.ctx.fillText('score: ' + this.score, this.canvas.width / 4, this.canvas.height / 4)
   },
 
   removeFirstLetter: function () {
@@ -182,7 +202,7 @@ function startGame () {
  }
 
 
-window.onload = function(){
+window.onload = function () {
   switchView("topBar")
   switchView("scores")
   switchView("menuBtn")
@@ -196,4 +216,6 @@ function switchView(menuType) {
   } else {
     x.style.display = "none"
   }
+  const typer = new TYPER()
+  window.typer = typer
 }
