@@ -137,6 +137,7 @@ function highScores() {
   switchView("name")
   switchView("menuBtn")
   switchView("scores")
+  
 }
 
 function highToMenu() {
@@ -145,6 +146,7 @@ function highToMenu() {
   switchView("name")
   switchView("menuBtn")
   switchView("scores")
+  
 }
 
 function checkNameInput() {
@@ -173,15 +175,12 @@ function startGame () {
     window.typer = typer
 }
 
-// function gameOver () {
-//     switchView("gameMenu")
-// }
+ function gameOver () {
+   //console.log("game over")
+    document.getElementById("gameOverDiv").innerHTML="<p> GAME OVER <p>"
+    switchView("gameMenu")
+ }
 
-function showHighScores() {
-  for (let i=0; i<10; i++) {
-    document.getElementById(i+1+".").innerHTML = sortArray()[i];
-  }
-}
 
 window.onload = function(){
   switchView("topBar")
