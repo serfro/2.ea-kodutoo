@@ -47,7 +47,7 @@ TYPER.prototype = {
         typer.start()
       }
     }
-
+    
     xmlhttp.open('GET', './lemmad2013.txt', true)
     xmlhttp.send()
   },
@@ -57,15 +57,7 @@ TYPER.prototype = {
     this.word.Draw()
 
     window.addEventListener('keypress', this.keyPressed.bind(this))
-   // this.startTime = new Date().getTime()
-   // window.setInterval(this.loop.bind(this), 1000)
   },
-
-  /*loop: function (){
-    this.word.Draw()
-    const currentTime = new Date().getTime()
-    this.counter = currentTime - this.startTime
-  }*/
 
   generateWord: function () {
     const generatedWordLength = this.wordMinLength + parseInt(this.guessedWords / 5)
@@ -128,7 +120,45 @@ function structureArrayByWordLength (words) {
   return tempArray
 }
 
-window.onload = function () {
-  const typer = new TYPER()
-  window.typer = typer
+function checkNameInput() {
+  let x = document.getElementById("nameText").value;
+  if (document.getElementById("nameText").value != ""){
+    startGame()
+  } else {
+    alert("Name field is empty!")
+  }
+}
+
+function highScores() {
+  switchView("startGame")
+  switchView("highScores")
+  switchView("name")
+  switchView("menuBtn")
+  switchView("scores")
+}
+
+function highToMenu() {
+  switchView("startGame")
+  switchView("highScores")
+  switchView("name")
+  switchView("menuBtn")
+  switchView("scores")
+}
+
+
+
+window.onload = function(){
+  switchView("topBar")
+  switchView("scores")
+  switchView("menuBtn")
+}
+
+
+function switchView(menuType) {
+  let x = document.getElementById(menuType)
+  if (x.style.display === "none") {
+    x.style.display = "block"
+  } else {
+    x.style.display = "none"
+  }
 }
