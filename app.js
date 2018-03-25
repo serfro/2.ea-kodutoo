@@ -195,12 +195,22 @@ function scoreboardInit () {
       [0, '-']
     ]
     localStorage.setItem('leaderboard', JSON.stringify(emptyLeaderboard))
+    console.log("empty now")
+  }
+}
+
+
+function showScores () {
+  let leaderboard = JSON.parse(localStorage.getItem('leaderboard'))
+  for (let i = 0; i < 10; i++) {
+    document.getElementById(i + 1 + '.').innerHTML = leaderboard[i][0] + " : " + leaderboard[i][1]
   }
 }
 
 window.onload = function () {
   switchView('topBar')
   scoreboardInit()
+  showScores()
 }
 
 function switchView (menuType) {
