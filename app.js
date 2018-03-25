@@ -20,6 +20,7 @@ const TYPER = function () {
   this.init()
 }
 
+let name
 window.TYPER = TYPER
 
 TYPER.prototype = {
@@ -81,6 +82,16 @@ TYPER.prototype = {
     this.word = new Word(wordFromArray, this.canvas, this.ctx, this.score)
   },
 
+  gameOver: function () {
+    let gg = confirm('Game Over!\nScore:' + parseInt(this.score) + '\nWant to try again?')
+    if (gg === true) {
+      alert("Ha-haa! You can't!\nYou need to start from the beginning and write you name again.\nSuffer :)")
+      window.location.href = ''
+    } else {
+      window.location.href = ''
+    }
+  },
+
   keyPressed: function (event) {
     const letter = String.fromCharCode(event.which)
 
@@ -96,7 +107,7 @@ TYPER.prototype = {
       }
       this.word.Draw()
     } else {
-      gameOver()
+      this.gameOver()
     }
   }
 }
@@ -143,8 +154,8 @@ function structureArrayByWordLength (words) {
 }
 
 function checkNameInput () {
-  let x = document.getElementById('nameText').value
-  if (document.getElementById('nameText').value != '') {
+  name = document.getElementById('nameText').value
+  if (document.getElementById('nameText').value !== '') {
     startGame()
   } else {
     alert('Name field is empty!')
@@ -159,16 +170,6 @@ function startGame () {
   window.typer = typer
 }
 
-function gameOver () {
-  let gg = confirm("Game Over! \n You loose. \n You don't any points if you loose. Want to try again?")
-  if (gg == true) {
-    alert("You can't! Ha-ha!\n Need to start from the beginning and write you name again.\n Suffer")
-    window.location.href = ""
-  } else {
-    window.location.href = ""
-  }
-}
-
 window.onload = function () {
   switchView('topBar')
 }
@@ -181,4 +182,3 @@ function switchView (menuType) {
     x.style.display = 'none'
   }
 }
-
