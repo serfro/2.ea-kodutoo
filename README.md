@@ -1,6 +1,8 @@
 Teet Triisa
 Sergei Frolov
 
+ ![Skeem:](https://raw.githubusercontent.com/2.ea-kodutoo/skeem.png)
+
 
 # 2. kodutöö – kirjutamise mängu täiendamine
 
