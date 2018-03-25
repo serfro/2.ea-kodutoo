@@ -83,6 +83,11 @@ TYPER.prototype = {
   },
 
   gameOver: function () {
+    let scores = JSON.parse(localStorage.getItem('leaderboard'))
+    scores[10] = [this.score, name]
+    scores.sort(sortNumber)
+    localStorage.setItem('leaderboard', JSON.stringify(scores))
+
     let gg = confirm('Game Over!\nScore:' + parseInt(this.score) + '\nWant to try again?')
     if (gg === true) {
       alert("Ha-haa! You can't!\nYou need to start from the beginning and write you name again.\nSuffer :)")
@@ -170,8 +175,32 @@ function startGame () {
   window.typer = typer
 }
 
+function sortNumber (a, b) {
+  return b[0] - a[0]
+}
+
+function scoreboardInit () {
+  if (localStorage.getItem('leaderboard') === null) {
+    const emptyLeaderboard = [
+      [0, '-'],
+      [0, '-'],
+      [0, '-'],
+      [0, '-'],
+      [0, '-'],
+      [0, '-'],
+      [0, '-'],
+      [0, '-'],
+      [0, '-'],
+      [0, '-'],
+      [0, '-']
+    ]
+    localStorage.setItem('leaderboard', JSON.stringify(emptyLeaderboard))
+  }
+}
+
 window.onload = function () {
   switchView('topBar')
+  scoreboardInit()
 }
 
 function switchView (menuType) {
