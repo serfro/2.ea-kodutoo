@@ -1,5 +1,4 @@
-Teet Triisa
-Sergei Frolov
+Teet Triisa\nSergei Frolov
 
 
  ![Skeem](https://github.com/serfro/2.ea-kodutoo/blob/master/skeem.png)
