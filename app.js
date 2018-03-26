@@ -202,7 +202,7 @@ function scoreboardInit () {
 function showScores () {
   let leaderboard = JSON.parse(localStorage.getItem('leaderboard'))
   for (let i = 0; i < 10; i++) {
-    document.getElementById(i + 1 + '.').innerHTML = leaderboard[i][0] + ' : ' + leaderboard[i][1]
+    document.getElementById(i + 1 + '.').innerHTML = leaderboard[i][1] + " : " + leaderboard[i][0]
   }
 }
 

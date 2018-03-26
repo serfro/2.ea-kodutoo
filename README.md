@@ -1,5 +1,11 @@
-Teet Triisa
-Sergei Frolov
+<p>Autorid:</p>
+<p>Teet Triisa</p>
+<p>Sergei Frolov</p>
+
+
+<p>Skeem:</p>
+
+![Skeem](https://github.com/serfro/2.ea-kodutoo/blob/master/skeem.png)
 
 
 # 2. kodutöö – kirjutamise mängu täiendamine
