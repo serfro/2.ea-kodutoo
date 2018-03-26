@@ -170,7 +170,6 @@ function checkNameInput () {
 function startGame () {
   document.getElementById('gameStartDiv').innerHTML = '<canvas></canvas>'
   switchView('gameMenu')
-  switchView('topBar')
   const typer = new TYPER()
   window.typer = typer
 }
@@ -207,7 +206,6 @@ function showScores () {
 }
 
 window.onload = function () {
-  switchView('topBar')
   scoreboardInit()
   showScores()
 }
