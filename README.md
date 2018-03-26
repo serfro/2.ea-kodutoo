@@ -8,6 +8,10 @@
 ![Skeem](https://github.com/serfro/2.ea-kodutoo/blob/master/skeem.png)
 
 
+<p>Tekstipõhine kirjeldus:</p>
+
+<p>Eelnevalt valmis olnud typer'i mängule, on lisatud skoor. Skoori lisatakse iga õigesti kirjutatud sõna eest järgmise valemi järgi: (2500ms + (200ms * n) - aega kulunud sõna kirjutamiseks), kus n on mitu tähte on sõna pikem algsest sõna pikkusest. Kui vajutad mõne tähe valesti, oled kaotanud. </p>
+
 # 2. kodutöö – kirjutamise mängu täiendamine
 
 
